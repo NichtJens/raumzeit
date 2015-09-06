@@ -1,15 +1,19 @@
 
 
-# the types of multiplication should be defined as standalone functions:
+# the types of multiplication should be defined as standalone functions
+# for now: operating on lists
 
 def scale(V, s):
-    pass
+    return [c * s for c in V]
 
 def dot(A, B):
-    pass
+    return sum(a * b for a, b in zip(A, B))
 
 def cross(A, B):
-    pass
+    x = A[1]*B[2] - A[2]*B[1]
+    y = A[2]*B[0] - A[0]*B[2]
+    z = A[0]*B[1] - A[1]*B[0]
+    return [x, y, z]
 
 
 
