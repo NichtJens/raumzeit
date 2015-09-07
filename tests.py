@@ -103,19 +103,19 @@ class TestCaseVector(unittest.TestCase):
         n = v * f
         self.assertEqual(d, n)
 
-        n = n * (1/f)
+        n = n * (1./f)
         self.assertEqual(v, n)
 
         n = f * v
         self.assertEqual(d, n)
 
-        n = (1/f) * n
+        n = (1./f) * n
         self.assertEqual(v, n)
 
         n = scale(v, f)
         self.assertEqual(d, n)
 
-        n = scale(n, (1/f))
+        n = scale(n, (1./f))
         self.assertEqual(v, n)
 
 
