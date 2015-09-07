@@ -62,6 +62,52 @@ class TestCaseMultiplication(unittest.TestCase):
 
 class TestCaseVector(unittest.TestCase):
 
+    def test_vec_init_2d(self):
+        v = Vector(1, 2)
+        ns = []
+        ns.append( Vector(*[1, 2]) )
+        ns.append( Vector(*(1, 2)) )
+        ns.append( Vector( [1, 2]) )
+        ns.append( Vector( (1, 2)) )
+        for n in ns:
+            self.assertEqual(v, n)
+
+    def test_vec_init_3d(self):
+        v = Vector(1, 2, 3)
+        ns = []
+        ns.append( Vector(*[1, 2, 3]) )
+        ns.append( Vector(*(1, 2, 3)) )
+        ns.append( Vector( [1, 2, 3]) )
+        ns.append( Vector( (1, 2, 3)) )
+        for n in ns:
+            self.assertEqual(v, n)
+
+
+    def test_vec_repr_2d(self):
+        v = Vector(1, 2)
+        self.assertEqual(repr(v), "(1, 2)")
+
+    def test_vec_repr_3d(self):
+        v = Vector(1, 2, 3)
+        self.assertEqual(repr(v), "(1, 2, 3)")
+
+
+    def test_vec_equality_2d(self):
+        v1 = Vector(1, 2)
+        v2 = Vector(1, 2)
+        self.assertEqual(v1, v2)
+
+    def test_vec_equality_3d(self):
+        v1 = Vector(1, 2, 3)
+        v2 = Vector(1, 2, 3)
+        self.assertEqual(v1, v2)
+
+    def test_vec_inequality(self):
+        v1 = Vector(1, 2)
+        v2 = Vector(1, 2, 3)
+        self.assertNotEqual(v1, v2)
+
+
     def test_vec_scale_zero(self):
         f = 2
         v = Vector(0, 0, 0)
