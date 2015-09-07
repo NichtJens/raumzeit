@@ -22,9 +22,13 @@ def cross(A, B):
 
 class Vector(list):
 
-    def __init__(self, x, y, z=None, t=None):
-        list.__init__(self)
-        self += [c for c in (x, y, z, t) if c is not None]
+    def __init__(self, x, y=None, z=None, t=None):
+        if y is not None:
+            list.__init__(self)
+            self += [c for c in (x, y, z, t) if c is not None]
+        else:
+            list.__init__(self, x)
+
         # handle alternatives like Vector(L) with L=(1, 2, ...)
         # handle 4d vectors, t should be zeroth component
         # spherical and cylindrical coordinates
@@ -46,7 +50,7 @@ class Vector(list):
 
 
     def __mul__(self, other):
-        if type(other) == type(self):
+        if isinstance(other, type(self)):
             return dot(self, other)
         else:
             return Vector(*scale(self, other))
@@ -55,7 +59,7 @@ class Vector(list):
 
 
     def __mod__(self, other):
-        if type(other) == type(self):
+        if isinstance(other, type(self)):
             return Vector(*cross(self, other))
         else:
             return Vector(*[c % other for c in self])
