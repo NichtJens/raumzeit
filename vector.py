@@ -22,10 +22,10 @@ def cross(A, B):
 
 class Vector(list):
 
-    def __init__(self, x, y=None, z=None, t=None):
+    def __init__(self, x, y=None, z=None):
         if y is not None:
             list.__init__(self)
-            self += [c for c in (x, y, z, t) if c is not None]
+            self += [c for c in (x, y, z) if c is not None]
         else:
             list.__init__(self, x)
 
@@ -63,14 +63,6 @@ class Vector(list):
     @z.setter
     def z(self, value):
         self[2] = value
-
-    @property
-    def t(self):
-        return self[3]
-
-    @t.setter
-    def t(self, value):
-        self[3] = value
 
 
 
