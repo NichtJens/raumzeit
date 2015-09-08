@@ -108,6 +108,30 @@ class TestCaseVector(unittest.TestCase):
         self.assertNotEqual(v1, v2)
 
 
+    def test_vec_coords_2d(self):
+        v = Vector(1, 2)
+        self.assertEqual(v.x, 1)
+        self.assertEqual(v.y, 2)
+        with self.assertRaises(IndexError):
+            v.z
+
+        v.x, v.y = 3, 4
+        self.assertEqual(v.x, 3)
+        self.assertEqual(v.y, 4)
+
+
+    def test_vec_coords_3d(self):
+        v = Vector(1, 2, 3)
+        self.assertEqual(v.x, 1)
+        self.assertEqual(v.y, 2)
+        self.assertEqual(v.z, 3)
+
+        v.x, v.y, v.z = 4, 5, 6
+        self.assertEqual(v.x, 4)
+        self.assertEqual(v.y, 5)
+        self.assertEqual(v.z, 6)
+
+
     def test_vec_scale_zero(self):
         f = 2
         v = Vector(0, 0, 0)
