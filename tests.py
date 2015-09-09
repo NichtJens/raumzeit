@@ -132,6 +132,39 @@ class TestCaseVector(unittest.TestCase):
         self.assertEqual(v.z, 6)
 
 
+    def test_vec_add_zero(self):
+        v = Vector(0, 0, 0)
+        self.assertEqual(v + v, v)
+
+    def test_vec_add_2d(self):
+        v1 = Vector(1, 2)
+        v2 = Vector(3, 4)
+        n  = Vector(4, 6)
+        self.assertEqual(v1 + v2, n)
+
+    def test_vec_add_3d(self):
+        v1 = Vector(1, 2, 3)
+        v2 = Vector(4, 5, 6)
+        n  = Vector(5, 7, 9)
+        self.assertEqual(v1 + v2, n)
+
+    def test_vec_sub_zero(self):
+        v = Vector(0, 0, 0)
+        self.assertEqual(v - v, v)
+
+    def test_vec_sub_2d(self):
+        v1 = Vector(1, 2)
+        v2 = Vector(3, 4)
+        n  = Vector(-2, -2)
+        self.assertEqual(v1 - v2, n)
+
+    def test_vec_sub_3d(self):
+        v1 = Vector(1, 2, 3)
+        v2 = Vector(4, 5, 6)
+        n  = Vector(-3, -3, -3)
+        self.assertEqual(v1 - v2, n)
+
+
     def test_vec_scale_zero(self):
         f = 2
         v = Vector(0, 0, 0)
@@ -223,6 +256,29 @@ class TestCaseVector(unittest.TestCase):
         v3 = Vector(-3, 6, -3)
         self.assertEqual(v1 % v2, v3)
         self.assertEqual(cross(v1, v2), v3)
+
+
+    def test_vec_mod(self):
+        v = Vector(3, 4, 5)
+        n = Vector(0, 1, 2)
+        self.assertEqual(v % 3, n)
+
+
+    def test_vec_div(self):
+        v = Vector(2, 4, 6)
+        n = Vector(1, 2, 3)
+        self.assertEqual(v / 2, n)
+
+    def test_vec_pow(self):
+        v = Vector(2, 4, 6)
+        v2 = Vector(1,1,1)
+        v3 = Vector(1,1,1)
+        v6 = Vector(1,1,1)
+        v7 = Vector(1,1,1)
+        self.assertEqual(v**2, v2)
+        self.assertEqual(v**3, v3)
+        self.assertEqual(v**6, v6)
+        self.assertEqual(v**7, v7)
 
 
 
