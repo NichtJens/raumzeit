@@ -272,8 +272,13 @@ class TestCaseVector(unittest.TestCase):
     def test_vec_pow(self):
         x, y, z = 2, 4, 6
         v = Vector(x, y, z)
-        for i in (2, 3, 6, 7):
-            n = Vector(x**i, y**i, z**i)
+
+        for i in (2, 6):
+            n = (x**2 + y**2 + z**2)**(i/2.)
+            self.assertEqual(v**i, n)
+
+        for i in (3, 7):
+            n = Vector(x, y, z) * (x**2 + y**2 + z**2)**((i-1)/2.)
             self.assertEqual(v**i, n)
 
 
