@@ -291,11 +291,11 @@ class TestCaseVector(unittest.TestCase):
 
         for i in (2, 6):
             n = (x**2 + y**2 + z**2)**(i/2.)
-            self.assertEqual(v**i, n)
+            self.assertAlmostEqual(v**i, n)
 
         for i in (3, 7):
             n = Vector(x, y, z) * (x**2 + y**2 + z**2)**((i-1)/2.)
-            self.assertEqual(v**i, n)
+            self.assertAlmostEqual(v**i, n)
 
 
 
