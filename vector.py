@@ -1,4 +1,6 @@
 
+import math
+
 
 # the types of multiplication should be defined as standalone functions
 # for now: operating on lists
@@ -69,12 +71,19 @@ class Vector(list):
     def __eq__(self, other):
         return False not in [s == o for s, o in zip(self, other)]
 
+    @property
+    def length(self):
+        return math.sqrt(sum(c**2 for c in self))
+
+    def __abs__(self):
+        return self.length
+
 
     def __add__(self, other):
-        pass
+        return Vector(*[s + o for s, o in zip(self, other)])
 
     def __sub__(self, other):
-        pass
+        return Vector(*[s - o for s, o in zip(self, other)])
 
 
     def __mul__(self, other):
@@ -94,10 +103,13 @@ class Vector(list):
 
 
     def __div__(self, other):
-        pass
+        return Vector(*scale(self, 1/float(other)))
 
     def __pow__(self, exponent):
-        pass
+        if exponent % 2 == 0:
+            return self.length**exponent
+        else:
+            return self * self.length**(exponent - 1)
 
 
 
