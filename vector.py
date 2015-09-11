@@ -71,12 +71,11 @@ class Vector(list):
     def __eq__(self, other):
         return False not in [s == o for s, o in zip(self, other)]
 
-    @property
-    def length(self):
-        return math.sqrt(sum(c**2 for c in self))
 
     def __abs__(self):
-        return self.length
+        return math.sqrt(sum(c**2 for c in self))
+
+    length = property(__abs__)
 
 
     def __add__(self, other):
