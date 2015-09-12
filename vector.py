@@ -49,6 +49,14 @@ class Vector(list):
     def __repr__(self):
         return repr(tuple(self))
 
+    def __eq__(self, other):
+        return False not in [s == o for s, o in zip(self, other)]
+
+    @property
+    def dimension(self):
+        return len(self)
+
+    dim = dimension
 
 
     # these can probably be done more generic
@@ -77,23 +85,12 @@ class Vector(list):
         self[2] = value
 
 
-
-    def __eq__(self, other):
-        return False not in [s == o for s, o in zip(self, other)]
-
-
     def __abs__(self):
         return math.sqrt(sum(c**2 for c in self))
 
     length = property(__abs__)
-    r = rad = radius = mag = magnitude = norm = abs = absolute = len = length
-
-
-    @property
-    def dimension(self):
-        return len(self)
-
-    dim = dimension
+    mag = magnitude = norm = abs = absolute = len = length
+    r = rad = radius = length
 
 
     def __add__(self, other):
@@ -121,6 +118,7 @@ class Vector(list):
 
     def __div__(self, other):
         return Vector(*scale(self, 1/float(other)))
+
 
     def __pow__(self, exponent):
         if iseven(exponent):
