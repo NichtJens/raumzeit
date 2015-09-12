@@ -2,7 +2,9 @@
 
 import unittest
 
-from vector import scale, dot, cross, Vector
+from vector import scale, dot, cross
+from vector import isodd, iseven
+from vector import Vector
 
 
 class TestCaseMultiplication(unittest.TestCase):
@@ -296,6 +298,22 @@ class TestCaseVector(unittest.TestCase):
         for i in (3, 7):
             n = Vector(x, y, z) * (x**2 + y**2 + z**2)**((i-1)/2.)
             self.assertAlmostEqual(v**i, n)
+
+
+
+class TestCaseHelper(unittest.TestCase):
+
+    def test_iseven(self):
+        self.assertTrue( iseven(0) )
+        for i in (2, 6, 42):
+            self.assertTrue(  iseven(i) )
+            self.assertFalse( iseven(i+1) )
+
+    def test_isodd(self):
+        self.assertFalse( isodd(0) )
+        for i in (1, 5, 23):
+            self.assertTrue(  isodd(i) )
+            self.assertFalse( isodd(i+1) )
 
 
 

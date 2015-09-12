@@ -2,6 +2,13 @@
 import math
 
 
+def iseven(i):
+    return i % 2 == 0
+
+def isodd(i):
+    return not iseven(i)
+
+
 # the types of multiplication should be defined as standalone functions
 # for now: operating on lists
 
@@ -105,7 +112,7 @@ class Vector(list):
         return Vector(*scale(self, 1/float(other)))
 
     def __pow__(self, exponent):
-        if exponent % 2 == 0:
+        if iseven(exponent):
             return self.length**exponent
         else:
             return self * self.length**(exponent - 1)
