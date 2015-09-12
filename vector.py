@@ -43,6 +43,7 @@ class Vector(list):
         # spherical and cylindrical coordinates
 
         # negative exponents?
+        # add: V.normalized -> V/V.length
 
 
     def __repr__(self):
@@ -85,11 +86,14 @@ class Vector(list):
         return math.sqrt(sum(c**2 for c in self))
 
     length = property(__abs__)
+    r = rad = radius = mag = magnitude = norm = abs = absolute = len = length
 
 
     @property
     def dimension(self):
         return len(self)
+
+    dim = dimension
 
 
     def __add__(self, other):
