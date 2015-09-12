@@ -126,6 +126,13 @@ class TestCaseVector(unittest.TestCase):
         self.assertAlmostEqual(v.length, abs(v))
 
 
+    def test_vec_dimension(self):
+        v2 = Vector(1, 2)
+        v3 = Vector(1, 2, 3)
+        self.assertEqual(v2.dimension, 2)
+        self.assertEqual(v3.dimension, 3)
+
+
     def test_vec_coords_2d(self):
         v = Vector(1, 2)
         self.assertEqual(v.x, 1)

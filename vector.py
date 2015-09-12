@@ -42,6 +42,8 @@ class Vector(list):
         # handle 4d vectors, t should be zeroth component
         # spherical and cylindrical coordinates
 
+        # negative exponents?
+
 
     def __repr__(self):
         return repr(tuple(self))
@@ -83,6 +85,11 @@ class Vector(list):
         return math.sqrt(sum(c**2 for c in self))
 
     length = property(__abs__)
+
+
+    @property
+    def dimension(self):
+        return len(self)
 
 
     def __add__(self, other):
