@@ -115,7 +115,7 @@ class Vector(list):
         if iseven(exponent):
             return self.length**exponent
         else:
-            return self * self.length**(exponent - 1)
+            return self * self**(exponent - 1)
 
 
 
