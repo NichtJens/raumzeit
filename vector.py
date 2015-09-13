@@ -92,7 +92,7 @@ class Vector(list):
 
 
     def __abs__(self):
-        return math.sqrt(sum(c**2 for c in self))
+        return math.sqrt(sum(s**2 for s in self))
 
     length = property(__abs__)
     mag = magnitude = norm = abs = absolute = len = length
@@ -132,7 +132,7 @@ class Vector(list):
         if isinstance(other, type(self)):
             return Vector(*cross(self, other))
         else:
-            return Vector(*[c % other for c in self])
+            return Vector(*[s % other for s in self])
 
 
     def __div__(self, other):
