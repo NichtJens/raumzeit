@@ -99,6 +99,19 @@ class Vector(list):
     r = rad = radius = length
 
 
+    @property
+    def theta(self):
+        if self.radius != 0 and self.z is not None:
+            return math.acos(self.z / self.radius)
+        else:
+            return 0.
+
+
+    @property
+    def phi(self):
+        return math.atan2(self.y, self.x)
+
+
     def __add__(self, other):
         return Vector(*[s + o for s, o in zip(self, other)])
 

@@ -126,6 +126,22 @@ class TestCaseVector(unittest.TestCase):
         self.assertAlmostEqual(v.length, abs(v))
 
 
+    def test_vec_spherical_zero(self):
+        v = Vector(0, 0, 0)
+        self.assertAlmostEqual(v.phi,   0)
+        self.assertAlmostEqual(v.theta, 0)
+
+    def test_vec_spherical_2d(self):
+        v = Vector(1, 2)
+        self.assertAlmostEqual(v.phi,   1.1071487)
+        self.assertAlmostEqual(v.theta, 0)
+
+    def test_vec_spherical_3d(self):
+        v = Vector(1, 2, 3)
+        self.assertAlmostEqual(v.phi,   1.1071487)
+        self.assertAlmostEqual(v.theta, 0.6405223)
+
+
     def test_vec_dimension(self):
         v2 = Vector(1, 2)
         v3 = Vector(1, 2, 3)
