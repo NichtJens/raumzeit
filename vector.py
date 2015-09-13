@@ -78,11 +78,17 @@ class Vector(list):
 
     @property
     def z(self):
-        return self[2]
+        try:
+            return self[2]
+        except IndexError:
+            return None
 
     @z.setter
     def z(self, value):
-        self[2] = value
+        try:
+            self[2] = value
+        except IndexError:
+            self += [value]
 
 
     def __abs__(self):

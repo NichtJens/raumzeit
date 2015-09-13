@@ -137,8 +137,7 @@ class TestCaseVector(unittest.TestCase):
         v = Vector(1, 2)
         self.assertEqual(v.x, 1)
         self.assertEqual(v.y, 2)
-        with self.assertRaises(IndexError):
-            v.z
+        self.assertEqual(v.z, None)
 
         v.x, v.y = 3, 4
         self.assertEqual(v.x, 3)
@@ -155,6 +154,12 @@ class TestCaseVector(unittest.TestCase):
         self.assertEqual(v.x, 4)
         self.assertEqual(v.y, 5)
         self.assertEqual(v.z, 6)
+
+        v = Vector(7, 8)
+        v.z = 9
+        self.assertEqual(v.x, 7)
+        self.assertEqual(v.y, 8)
+        self.assertEqual(v.z, 9)
 
 
     def test_vec_add_zero(self):
