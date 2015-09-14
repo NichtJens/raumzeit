@@ -121,22 +121,22 @@ class Vector(list):
 
     def __mul__(self, other):
         if isinstance(other, type(self)):
-            return dot(self, other)
+            return self.dot(other)
         else:
-            return Vector(*scale(self, other))
+            return self.scale(other)
 
     __rmul__ = __mul__
 
 
     def __mod__(self, other):
         if isinstance(other, type(self)):
-            return Vector(*cross(self, other))
+            return self.cross(other)
         else:
             return Vector(*[s % other for s in self])
 
 
     def __div__(self, other):
-        return Vector(*scale(self, 1/float(other)))
+        return self.scale(1/float(other))
 
 
     def __pow__(self, exponent):
@@ -144,6 +144,16 @@ class Vector(list):
             return self.length**exponent
         else:
             return self * self**(exponent - 1)
+
+
+    def scale(self, other):
+        return Vector(*scale(self, other))
+
+    def dot(self, other):
+        return dot(self, other)
+
+    def cross(self, other):
+        return Vector(*cross(self, other))
 
 
 
