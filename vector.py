@@ -153,7 +153,10 @@ class Vector(list):
         return dot(self, other)
 
     def cross(self, other):
-        return Vector(*cross(self, other))
+        x = self.y * other.z - self.z * other.y
+        y = self.z * other.x - self.x * other.z
+        z = self.x * other.y - self.y * other.x
+        return Vector(x, y, z)
 
 
 
