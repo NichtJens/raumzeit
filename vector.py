@@ -16,7 +16,9 @@ def scale(V, s):
     return [c * s for c in V]
 
 def dot(A, B):
-    return sum(a * b for a, b in zip(A, B))
+    if type(A) != Vector: A = Vector(A)
+    if type(B) != Vector: B = Vector(B)
+    return A.dot(B)
 
 def cross(A, B):
     if type(A) != Vector: A = Vector(A)
@@ -150,7 +152,7 @@ class Vector(list):
         return Vector(*scale(self, other))
 
     def dot(self, other):
-        return dot(self, other)
+        return sum(s * o for s, o in zip(self, other))
 
     def cross(self, other):
         x = self.y * other.z - self.z * other.y
