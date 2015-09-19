@@ -13,7 +13,8 @@ def isodd(i):
 # for now: operating on lists
 
 def scale(V, s):
-    return [c * s for c in V]
+    if type(V) != Vector: V = Vector(V)
+    return V.scale(s)
 
 def dot(A, B):
     if type(A) != Vector: A = Vector(A)
@@ -149,7 +150,7 @@ class Vector(list):
 
 
     def scale(self, other):
-        return Vector(*scale(self, other))
+        return Vector(*[s * other for s in self])
 
     def dot(self, other):
         return sum(s * o for s, o in zip(self, other))
