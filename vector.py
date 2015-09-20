@@ -14,7 +14,7 @@ def isodd(i):
 
 def scale(V, s):
     if type(V) != Vector: V = Vector(V)
-    return V.scale(s)
+    return list(V.scale(s))
 
 def dot(A, B):
     if type(A) != Vector: A = Vector(A)
@@ -24,8 +24,7 @@ def dot(A, B):
 def cross(A, B):
     if type(A) != Vector: A = Vector(A)
     if type(B) != Vector: B = Vector(B)
-    res = A.cross(B)
-    return [res.x, res.y, res.z]
+    return list(A.cross(B))
 
 
 
