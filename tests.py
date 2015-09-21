@@ -7,7 +7,7 @@ from vector import isodd, iseven
 from vector import Vector
 
 
-class TestCaseMultiplication(unittest.TestCase):
+class TestCaseStandalone(unittest.TestCase):
 
     def test_mul_scale_zero(self):
         v = [0] * 3
@@ -59,6 +59,26 @@ class TestCaseMultiplication(unittest.TestCase):
         v2 = [ 4, 5,  6]
         v3 = [-3, 6, -3]
         self.assertEqual(cross(v1, v2), v3)
+
+
+    def test_add_zero(self):
+        pass
+
+    def test_add_2d(self):
+        pass
+
+    def test_add_3d(self):
+        pass
+
+
+    def test_sub_zero(self):
+        pass
+
+    def test_sub_2d(self):
+        pass
+
+    def test_sub_3d(self):
+        pass
 
 
 
