@@ -27,6 +27,13 @@ def cross(A, B):
     return list(A.cross(B))
 
 
+def add(A, B):
+    pass
+
+def sub(A, B):
+    pass
+
+
 
 # x, y, z, and t should be properties of the class
 # further properties: dimension, length (and alternative names for these)
