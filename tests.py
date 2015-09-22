@@ -3,6 +3,7 @@
 import unittest
 
 from vector import scale, dot, cross
+from vector import add, sub
 from vector import isodd, iseven
 from vector import Vector
 
@@ -62,23 +63,37 @@ class TestCaseStandalone(unittest.TestCase):
 
 
     def test_add_zero(self):
-        pass
+        v = [0, 0, 0]
+        self.assertEqual(add(v, v), v)
 
     def test_add_2d(self):
-        pass
+        v1 = [1, 2]
+        v2 = [3, 4]
+        n  = [4, 6]
+        self.assertEqual(add(v1, v2), n)
 
     def test_add_3d(self):
-        pass
+        v1 = [1, 2, 3]
+        v2 = [4, 5, 6]
+        n  = [5, 7, 9]
+        self.assertEqual(add(v1, v2), n)
 
 
     def test_sub_zero(self):
-        pass
+        v = [0, 0, 0]
+        self.assertEqual(sub(v, v), v)
 
     def test_sub_2d(self):
-        pass
+        v1 = [1, 2]
+        v2 = [3, 4]
+        n  = [-2, -2]
+        self.assertEqual(sub(v1, v2), n)
 
     def test_sub_3d(self):
-        pass
+        v1 = [1, 2, 3]
+        v2 = [4, 5, 6]
+        n  = [-3, -3, -3]
+        self.assertEqual(sub(v1, v2), n)
 
 
 
