@@ -28,10 +28,14 @@ def cross(A, B):
 
 
 def add(A, B):
-    pass
+    if type(A) != Vector: A = Vector(A)
+    if type(B) != Vector: B = Vector(B)
+    return list(A + B)
 
 def sub(A, B):
-    pass
+    if type(A) != Vector: A = Vector(A)
+    if type(B) != Vector: B = Vector(B)
+    return list(A - B)
 
 
 
