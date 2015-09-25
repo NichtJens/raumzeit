@@ -8,7 +8,7 @@ from vector import isodd, iseven
 from vector import Vector
 
 
-class TestCaseStandalone(unittest.TestCase):
+class TestCaseStandaloneList(unittest.TestCase):
 
     def test_mul_scale_zero(self):
         v = [0] * 3
@@ -94,6 +94,97 @@ class TestCaseStandalone(unittest.TestCase):
         v2 = [4, 5, 6]
         n  = [-3, -3, -3]
         self.assertEqual(sub(v1, v2), n)
+
+
+
+class TestCaseStandaloneTuple(unittest.TestCase):
+
+    def test_mul_scale_zero(self):
+        v = (0, 0, 0)
+        n = scale(v, 2)
+        self.assertEqual(n, v)
+
+    def test_mul_scale_2d(self):
+        v = (4, 5)
+        n = scale(v, 1.23)
+        self.assertEqual(n, (4.92, 6.15))
+
+        n = scale(n, 1/1.23)
+        self.assertEqual(n, v)
+
+    def test_mul_scale_3d(self):
+        v = (1., 2., 3.)
+        n = scale(v, 2)
+        self.assertEqual(n, (2, 4, 6))
+
+        n = scale(n, 1/2.)
+        self.assertEqual(n, v)
+
+
+    def test_mul_dot_zero(self):
+        v = (0, 0, 0)
+        self.assertEqual(dot(v, v), 0)
+
+    def test_mul_dot_2d(self):
+        v = (4., 5.)
+        self.assertEqual(dot(v, v), 41)
+
+    def test_mul_dot_3d(self):
+        v = (1, 2, 3)
+        self.assertEqual(dot(v, v), 14)
+
+
+    def test_mul_cross_zero(self):
+        n = (0, 0, 0)
+        self.assertEqual(cross(n, n), n)
+
+    def test_mul_cross_normal(self):
+        n1 = (1., 0,  0)
+        n2 = (0,  1., 0)
+        n3 = (0,  0,  1.)
+        self.assertEqual(cross(n1, n2), n3)
+
+    def test_mul_cross(self):
+        v1 = ( 1, 2,  3)
+        v2 = ( 4, 5,  6)
+        v3 = (-3, 6, -3)
+        self.assertEqual(cross(v1, v2), v3)
+
+
+    def test_add_zero(self):
+        v = (0, 0, 0)
+        self.assertEqual(add(v, v), v)
+
+    def test_add_2d(self):
+        v1 = (1, 2)
+        v2 = (3, 4)
+        n  = (4, 6)
+        self.assertEqual(add(v1, v2), n)
+
+    def test_add_3d(self):
+        v1 = (1, 2, 3)
+        v2 = (4, 5, 6)
+        n  = (5, 7, 9)
+        self.assertEqual(add(v1, v2), n)
+
+
+    def test_sub_zero(self):
+        v = (0, 0, 0)
+        self.assertEqual(sub(v, v), v)
+
+    def test_sub_2d(self):
+        v1 = (1, 2)
+        v2 = (3, 4)
+        n  = (-2, -2)
+        self.assertEqual(sub(v1, v2), n)
+
+    def test_sub_3d(self):
+        v1 = (1, 2, 3)
+        v2 = (4, 5, 6)
+        n  = (-3, -3, -3)
+        self.assertEqual(sub(v1, v2), n)
+
+
 
 
 
